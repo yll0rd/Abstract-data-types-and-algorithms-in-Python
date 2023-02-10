@@ -4,6 +4,7 @@ def main():
     bornBefore = date(2006,1,14)
     print(bornBefore)
     Date = promptandExactDate()
+    print()
     while Date != None:
         if Date <= bornBefore:
             print("Is at least 17 of age: ", Date)
