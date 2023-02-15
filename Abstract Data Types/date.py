@@ -6,6 +6,7 @@ class Date:
         self.day = day
         self.year = year
         self.julianDay = 0
+        assert self._isValidGregorian( month, day, year ), "Invalid Gregorian date."
     # The first line of the equation, T = (M - 14) / 12, has to be changed
     # since Python's implementation of integer division is not the same
     # as the mathematical definition.
