@@ -2,16 +2,16 @@ from date import Date
 
 
 def main():
-    bornBefore = Date(2006,1,14)
+    bornBefore = Date(1,14,2006)
     print(bornBefore)
-    date = promptandExactDate()
+    date = PromptAndExactDate()
     print()
-    while date != None:
+    while date is not None:
         if date <= bornBefore:
             print("Is at least 17 of age: ", date)
-        date = promptandExactDate()
+        date = PromptAndExactDate()
 
-def promptandExactDate():
+def PromptAndExactDate():
     print("Enter a birth date.")
     month = int(input("month (0 to quit): "))
     if month == 0 :
@@ -19,6 +19,6 @@ def promptandExactDate():
     else :
         day = int( input("day: ") )
         year = int( input("year: ") )
-        return Date(year,month,day)
+        return Date(month,day,year)
 
 main()
