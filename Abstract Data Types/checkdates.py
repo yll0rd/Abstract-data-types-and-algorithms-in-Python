@@ -1,14 +1,15 @@
-from datetime import date
+from date import Date
+
 
 def main():
-    bornBefore = date(2006,1,14)
+    bornBefore = Date(2006,1,14)
     print(bornBefore)
-    Date = promptandExactDate()
+    date = promptandExactDate()
     print()
-    while Date != None:
-        if Date <= bornBefore:
-            print("Is at least 17 of age: ", Date)
-        Date = promptandExactDate()
+    while date != None:
+        if date <= bornBefore:
+            print("Is at least 17 of age: ", date)
+        date = promptandExactDate()
 
 def promptandExactDate():
     print("Enter a birth date.")
@@ -18,6 +19,6 @@ def promptandExactDate():
     else :
         day = int( input("day: ") )
         year = int( input("year: ") )
-        return date(year,month,day)
+        return Date(year,month,day)
 
 main()
