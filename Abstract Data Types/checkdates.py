@@ -4,12 +4,13 @@ from date import Date
 def main():
     bornBefore = Date(1,14,2006)
     print(bornBefore)
-    date = PromptAndExactDate()
-    print()
-    while date is not None:
-        if date <= bornBefore:
-            print("Is at least 17 of age: ", date)
-        date = PromptAndExactDate()
+    print(bornBefore.monthName())
+    # date = PromptAndExactDate()
+    # print()
+    # while date is not None:
+    #     if date <= bornBefore:
+    #         print("Is at least 17 of age: ", date)
+    #     date = PromptAndExactDate()
 
 def PromptAndExactDate():
     print("Enter a birth date.")
