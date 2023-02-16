@@ -5,6 +5,7 @@ def main():
     bornBefore = Date(1,14,2006)
     print(bornBefore)
     print(bornBefore.monthName())
+    print(bornBefore.isLeapYear())
     # date = PromptAndExactDate()
     # print()
     # while date is not None:

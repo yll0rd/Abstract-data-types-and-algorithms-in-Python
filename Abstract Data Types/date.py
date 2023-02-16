@@ -3,6 +3,7 @@ class Date:
     # Creates an object instance for the specified Gregorian date.
     def __init__(self,month,day,year):
         self.month = month
+        self.year = year
         self._julianDay = 0
         # assert self._isValidGregorian( month, day, year ), "Invalid Gregorian date."
     # The first line of the equation, T = (M - 14) / 12, has to be changed
@@ -20,13 +21,20 @@ class Date:
     def get_day( self ):
         return (self.toGregorian())[1] # returning D from (m, D, y)
 
-    def year( self ):
+    def get_year( self ):
         return (self.toGregorian())[2] # returning Y from (m, d, Y)
 
     def monthName(self):
-        month = self.month 
         l = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        return l[month-1]
+        return l[self.month-1]
+
+    def isLeapYear(self):
+        yr = self.year
+        if yr % 100 == 0:
+            if yr % 400 == 0: return True
+            else: return False
+        elif yr % 4 == 0: return True
+        else: return False
 
     # Returns day of the week as an int between 0 (Mon) and 6 (Sun).
     def dayOfWeek( self ):
