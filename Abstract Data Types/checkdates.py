@@ -2,12 +2,14 @@ from date import Date
 
 
 def main():
-    bornBefore = Date(1,14,2006)
+    bornBefore = Date(1,14,2023)
     print(bornBefore)
     print(bornBefore.monthName())
+    print(bornBefore.dateOfWeekName())
+    print(bornBefore.dateOfYear())
     # print(bornBefore.isLeapYear())
-    print(bornBefore.numDays(Date(1,20,2006)))
-    print(bornBefore.advanceBy(65))
+    # print(bornBefore.numDays(Date(1,20,2006)))
+    # print(bornBefore.advanceBy(65))
     # date = PromptAndExactDate()
     # print()
     # while date is not None:

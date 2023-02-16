@@ -76,6 +76,14 @@ class Date:
         if yr < 0: return False
         return True
 
+    def dateOfWeekName(self):
+        l = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        d = self.dayOfWeek()
+        return l[d]
+
+    def dateOfYear(self):
+        return self.numDays(Date(1,1,self.year))
+
     # Returns the Gregorian date as a tuple: (mth, day, year).
     def toGregorian( self ):
         A = self._julianDay + 68569
