@@ -2,10 +2,11 @@ class Date:
     
     # Creates an object instance for the specified Gregorian date.
     def __init__(self,month,day,year):
+        self.day = day
         self.month = month
         self.year = year
         self._julianDay = 0
-        # assert self._isValidGregorian( month, day, year ), "Invalid Gregorian date."
+        assert self._isValidGregorian( month, day, year ), "Invalid Gregorian date."
     # The first line of the equation, T = (M - 14) / 12, has to be changed
     # since Python's implementation of integer division is not the same
     # as the mathematical definition.
@@ -24,18 +25,7 @@ class Date:
     def get_year( self ):
         return (self.toGregorian())[2] # returning Y from (m, d, Y)
 
-    def monthName(self):
-        l = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        return l[self.month-1]
-
-    def isLeapYear(self):
-        yr = self.year
-        if yr % 100 == 0:
-            if yr % 400 == 0: return True
-            else: return False
-        elif yr % 4 == 0: return True
-        else: return False
-
+    
     # Returns day of the week as an int between 0 (Mon) and 6 (Sun).
     def dayOfWeek( self ):
         mth, day, year = self.toGregorian()
@@ -60,7 +50,31 @@ class Date:
         return self._julianDay <= otherDate._julianDay
 
     # The remaining methods are to be included at this point.
-    # ......
+    def monthName(self):
+        l = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        return l[self.month-1]
+
+    def isLeapYear(self):
+        yr = self.year
+        if yr % 100 == 0:
+            if yr % 400 == 0: return True
+            else: return False
+        elif yr % 4 == 0: return True
+        else: return False
+
+    def numDays(self, OtherDate):
+        if self._julianDay > OtherDate._julianDay: return self._julianDay - OtherDate._julianDay
+        else: return OtherDate._julianDay - self._julianDay
+
+    def advanceBy(self, days):
+        self._julianDay += days
+        return self.__str__()
+
+    def _isValidGregorian(self, mth, day, yr):
+        if day not in range(1,32): return False
+        if mth not in range(1,13): return False
+        if yr < 0: return False
+        return True
 
     # Returns the Gregorian date as a tuple: (mth, day, year).
     def toGregorian( self ):
