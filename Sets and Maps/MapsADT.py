@@ -53,8 +53,11 @@ if __name__ == "__main__":
     m = Map()
     m.add(1, "Leo")
     m.add(2, "Grant")
+    m.add(3, "Florida")
     m.add(1, "Brice")
     m.remove(2)
     for i in m.entryList:
         print(i.key, end=": ")
         print(m.valueOf(i.key))
+    print()
+    print(f"The size of the map is: {m.size()}")
