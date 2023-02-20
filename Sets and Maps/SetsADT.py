@@ -23,7 +23,7 @@ class Set:
     def isSubsetOf(self, otherSet):
         for element in self:
             if element not in otherSet: return False
-            return True
+        return True
 
     def union(self, otherSet):
         newSet = Set()
