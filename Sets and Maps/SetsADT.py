@@ -1,6 +1,8 @@
 class Set:
-    def __init__(self):
+    def __init__(self, initElements = None):
         self.Elements = list()
+        if initElements is not None:
+            self.Elements = list(initElements)
 
     def size(self):
         return len(self.Elements)
@@ -21,7 +23,7 @@ class Set:
         else: return self.isSubsetOf(otherSet)
 
     def isSubsetOf(self, otherSet):
-        for element in self:
+        for element in self.Elements:
             if element not in otherSet: return False
         return True
 
@@ -48,9 +50,13 @@ class Set:
                 newSet.remove(element)
 
 if __name__ == '__main__':
-    leo = Set()
-    leo.add(1)
-    leo.add(2)
-    leo.add(3)
+    leo = Set([1,3,4])
+    brice = Set()
+    brice.add(1)
+    brice.add(2)
+    brice.add(3)
+    brice.remove(2)
     print(leo.size())
     print(leo.Elements)
+    print(brice.Elements)
+    print(brice.isSubsetOf(leo))
