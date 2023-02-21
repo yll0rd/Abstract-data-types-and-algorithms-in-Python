@@ -20,9 +20,12 @@ class Set:
 
     def equal(self, otherSet):
         if len(otherSet.Elements) != len(self.Elements): return False
-        else: return self.isSubsetOf(otherSet)
+        for element in otherSet.Elements:
+            if not self.__contains__(element): return False
+        return True
 
     def isSubsetOf(self, otherSet):
+        if self.equal(otherSet): return False
         for element in self.Elements:
             if element not in otherSet: return False
         return True
@@ -60,3 +63,4 @@ if __name__ == '__main__':
     print(leo.Elements)
     print(brice.Elements)
     print(brice.isSubsetOf(leo))
+    print(leo.isSubsetOf(leo))
