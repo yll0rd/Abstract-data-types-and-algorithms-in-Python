@@ -35,6 +35,22 @@ class Bag:
         else:
             predNode.next = curNode.next
         return curNode.item
+    
+    # def removeAll(self, head):
+    #     #Searching for the entered head in the linked list
+    #     curNode = self.head
+    #     while curNode is not None and curNode.item != head:
+    #         self.head = curNode
+    #         curNode = curNode.next
+
+        #Removing all the nodes in the linked list as from the head
+        if self.head is not None:
+            curNode = self.head
+            while curNode.next is not None:
+                curNode = curNode.next
+                self.head = curNode.next
+                self.size -= 1
+                 
 
     def __iter__(self):
         return BagIterator(self.head)
@@ -78,8 +94,12 @@ if __name__ == "__main__":
     # Bag1.remove(15)
     print(f"The size of Bag1 is {Bag1.len()}")
     print()
+    print("The content in Bag1:")
     iterate(Bag1)
-
+    # print()
+    # Bag1.removeAll(15)
+    # print("The content in Bag1:")
+    # iterate(Bag1)
 
 
     
