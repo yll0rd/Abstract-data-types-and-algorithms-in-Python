@@ -11,6 +11,7 @@ def isValidSource(srcfile):
             else: comment.clear()
             if comment == ['/','/']:
                 break
+            
             if token in "{[(":
                 s.push(token)
             elif token in "}])":
