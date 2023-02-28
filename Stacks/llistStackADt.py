@@ -14,8 +14,10 @@ class Stack:
 
     def pop(self):
         assert not self.isEmpty(), "Cannot pop from an empty stack"
+        node = self.head
         self.head = self.head.next
         self.size -= 1
+        return node.item
 
     def push(self, item):
         self.head = StackNode(item, self.head)
