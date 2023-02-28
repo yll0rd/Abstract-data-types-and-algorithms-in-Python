@@ -11,6 +11,7 @@ class Stack:
     
     def peek(self):
         assert not self.isEmpty(), "Cannot peek at an empty stack." 
+        return self.head.item
 
     def pop(self):
         assert not self.isEmpty(), "Cannot pop from an empty stack"
