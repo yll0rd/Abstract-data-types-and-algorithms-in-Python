@@ -1,0 +1,6 @@
+Many of the data types and classes available in Python are actually implemented
+using appropriate types from the C language. While Python does not provide the
+array structure as part of the language itself, it now includes the ctypes module as
+part of the Python Standard Library. This module provides access to the diverse set
+of data types available in the C language and the complete functionality provided
+by a wide range of C libraries.
