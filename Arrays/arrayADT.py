@@ -27,7 +27,6 @@ class Array:
 
     def __iter__(self):
         return ArrayIterator(self.elements)
-
 class ArrayIterator:
     def __init__(self, theArray):
         self.arr = theArray
@@ -44,3 +43,69 @@ class ArrayIterator:
         else:
             raise StopIteration
     
+
+
+
+
+# Implementation of the Array2D ADT using an array of arrays
+class Array2D:
+    def __init__(self, numRows, numCols): 
+        # Create a 1-D array to store an array reference for each row.
+        self.theRows = Array(numRows)
+        # Create the 1-D arrays for each row of the 2-D array.
+        for i in range(numRows):
+            self.theRows.setItem(i, Array(numCols))
+
+    def getnumRows(self):
+        return self.theRows.__len__()
+    
+    def isEmpty(self):
+        for row in range(self.getnumRows()):
+            theArray = self.theRows.getItem(row)
+            for col in range(self.getnumCols()):
+                if theArray.getItem(col) != None:
+                    return False
+        return True
+    
+    def getnumCols(self):
+        n = self.theRows.getItem(0)
+        return n.__len__()
+    
+    def clear(self, value):
+        for row in range(self.getnumRows()):
+            theArray = self.theRows.getItem(row)
+            for col in range(self.getnumCols()):
+                theArray.setItem(col, value)
+        
+    def __getItem__(self, indexTuple):
+        assert len(indexTuple) == 2, "Invalid number of array subscripts."
+        row = indexTuple[0]
+        col = indexTuple[1]
+        assert row >= 0 and row < self.getnumRows() \
+        and col >= 0 and col < self.getnumCols(), \
+        "Array subscript out of range."
+        theArray = self.theRows.getItem(row)
+        return theArray.getItem(col)
+    
+    def __setItem__(self, indexTuple, value):
+        assert len(indexTuple) == 2, "Invalid number of array subscripts."
+        row = indexTuple[0]
+        col = indexTuple[1]
+        assert row >= 0 and row < self.getnumRows() \
+        and col >= 0 and col < self.getnumCols(), \
+        "Array subscript out of range."
+        theArray = self.theRows.getItem(row)
+        theArray.setItem(col,value)
+
+if __name__ == "__main__":
+    a = Array2D(2,3)
+    a.clear(None)
+    if not a.isEmpty():
+        for row in range(a.getnumRows()):
+            for col in range(a.getnumCols()):
+                val = eval(input(f"Enter a[{row}][{col}]: "))
+                a.__setItem__((row, col), val)
+
+    for row in range(a.getnumRows()):
+        for col in range(a.getnumCols()):
+            print(f"A[{row}][{col}]: {a.__getItem__((row, col))}")
