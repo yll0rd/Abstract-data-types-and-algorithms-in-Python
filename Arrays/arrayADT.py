@@ -25,6 +25,17 @@ class Array:
         for i in range(self.size):
             self.elements[i] = value
 
+    def snapshot(self):
+        snap = list()
+        It = self.__iter__()
+        for i in range(self.size):
+            try:
+                snap.append(It.__next__())
+            except StopIteration:
+                break
+        return snap
+
+
     def __iter__(self):
         return ArrayIterator(self.elements)
 class ArrayIterator:
@@ -36,7 +47,7 @@ class ArrayIterator:
         return self
     
     def __next__(self):
-        if self.index < len(self.arr):
+        if self.index < len(self.arr) and self.arr[self.index] is not None:
             entry = self.arr[self.index]
             self.index += 1
             return entry
