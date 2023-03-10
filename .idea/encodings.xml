@@ -3,5 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Queues/SortedlistPriorityQueue.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Queues/SortedllistPriorityQueue.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Queues/UnsortedllistPriorityQueue.py" charset="UTF-8" />
   </component>
 </project>
