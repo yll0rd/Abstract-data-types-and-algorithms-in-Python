@@ -14,13 +14,13 @@ class MaxHeap:
 
     # Create a max-heap with maximum capacity of maxSize.
     def capacity(self):
-        return self._elements.__len__()
+        return len(self._elements)
 
     # Add a new value to the heap.
     def add(self, value):
         assert self._count < self.capacity(), "Cannot add to a full heap."
         # Add the new value to the end of the list.
-        self._elements.setItem(self._count, value)
+        self._elements[self._count] = value
         self._count += 1
         # Sift the new value up the tree.
         self._siftUp(self._count - 1)
@@ -31,7 +31,7 @@ class MaxHeap:
         # Save the root value and copy the last heap value to the root.
         value = self._elements[0]
         self._count -= 1
-        self._elements.elements[0] = self._elements[self._count]
+        self._elements[0] = self._elements[self._count]
         # Sift the root value down the tree.
         self._siftDown(0)
 

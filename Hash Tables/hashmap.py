@@ -1,4 +1,4 @@
-from Array_module.arrayADT import Array
+from Arrays.arrayADT import Array
 
 
 class _MapEntry:
@@ -33,11 +33,11 @@ class HashMap:
     def add(self, key, value):
         if self.__contains__(key):
             slot = self._findSlot(key, False)
-            self._table.elements[slot].value = value
+            self._table[slot].value = value
             return False
         else:
             slot = self._findSlot(key, True)
-            self._table.elements[slot] = _MapEntry(key, value)
+            self._table[slot] = _MapEntry(key, value)
             self._count += 1
             if self._count == self._maxCount:
                 self._rehash()
@@ -46,7 +46,7 @@ class HashMap:
     def valueOf(self, key):
         slot = self._findSlot(key, False)
         assert slot is not None, "Invalid map key."
-        return self._table.elements[slot].value
+        return self._table[slot].value
 
     # Finds the slot containing the key or where the key can be added.
     # forInsert indicates if the search is for an insertion, which locates
@@ -58,12 +58,12 @@ class HashMap:
 
         # Probe for key.
         M = self._table.__len__()
-        while self._table.elements[slot] is not UNUSED:
+        while self._table[slot] is not UNUSED:
             if forInsert and \
-                    self._table.elements[slot] is UNUSED or self._table.elements[slot] is EMPTY:
+                    self._table[slot] is UNUSED or self._table[slot] is EMPTY:
                 return slot
             elif not forInsert and \
-                    (self._table.elements[slot] is not EMPTY and self._table.elements[slot].key == key):
+                    (self._table[slot] is not EMPTY and self._table[slot].key == key):
                 return slot
             else:
                 slot = (slot + step) % M
