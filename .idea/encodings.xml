@@ -2,13 +2,16 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Advanced Linked Lists/DoublyLinkedList.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Hash Tables/hashmap.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Linked lists/Advanced Linked Lists/CircularLinkedList.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Queues/SortedlistPriorityQueue.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Queues/SortedllistPriorityQueue.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Queues/UnsortedllistPriorityQueue.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Searching and Sorting/binearSearch.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Searching and Sorting/bubbleSort.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Searching and Sorting/insertionSort.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Searching and Sorting/linearSearch.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Searching and Sorting/selectionSort.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Trees/Binary Trees/binaryTree.py" charset="UTF-8" />
   </component>
 </project>
