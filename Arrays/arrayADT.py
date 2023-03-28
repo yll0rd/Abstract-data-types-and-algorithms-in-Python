@@ -18,7 +18,7 @@ class Array:
         assert 0 <= index < self.__len__(), "Array subscript out of range"
         return self.elements[index]
 
-    def setItem(self, index, value):
+    def __setitem__(self, index, value):
         assert 0 <= index < self.__len__(), "Array subscript out of range"
         self.elements[index] = value
 
@@ -64,7 +64,7 @@ class Array2D:
         self.theRows = Array(numRows)
         # Create the 1-D arrays for each row of the 2-D array.
         for i in range(numRows):
-            self.theRows.setItem(i, Array(numCols))
+            self.theRows.__setitem__(i, Array(numCols))
 
     def getnumRows(self):
         return self.theRows.__len__()
@@ -85,7 +85,7 @@ class Array2D:
         for row in range(self.getnumRows()):
             theArray = self.theRows.__getitem__(row)
             for col in range(self.getnumCols()):
-                theArray.setItem(col, value)
+                theArray.__setitem__(col, value)
 
     def __getItem__(self, indexTuple):
         assert len(indexTuple) == 2, "Invalid number of array subscripts."
@@ -105,7 +105,7 @@ class Array2D:
                and 0 <= col < self.getnumCols(), \
             "Array subscript out of range."
         theArray = self.theRows.__getitem__(row)
-        theArray.setItem(col, value)
+        theArray.__setitem__(col, value)
 
 
 if __name__ == "__main__":
@@ -123,5 +123,5 @@ if __name__ == "__main__":
 
     A = Array(4)
     for i in range(4):
-        A.setItem(i, i * 2)
+        A[i] = i * 2
     print(A[1])
